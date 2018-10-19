@@ -1,0 +1,23 @@
+---
+- hosts: arno
+  tasks:
+         - name: Installation d'applications sur le Mac d Arno
+           homebrew_cask: name={{ item }} state=present
+           with_items:
+                    - alfred
+                   # - java
+                   #- flashplayer
+                   #- geogebra
+                   # - firefox
+                   #- google-chrome
+                   #- google-drive-file-stream
+                   #- google-earth
+                   #  - adobe-acrobate-pro
+                   # - adobe-acrobate-reader
+                   # - adobe-air
+                   #- adobe-air-sdk
+                   # - scratch
+                    - vlc
+                   #  - libreoffice
+                   # - libreoffice-language-pack
+...
