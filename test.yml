@@ -1,23 +1,34 @@
 ---
 - hosts: arno
   tasks:
-         - name: Installation d'applications sur le Mac d Arno
-           homebrew_cask: name={{ item }} state=present
-           with_items:
-                    - alfred
-                   # - java
-                   #- flashplayer
-                   #- geogebra
-                   # - firefox
-                   #- google-chrome
-                   #- google-drive-file-stream
-                   #- google-earth
-                   #  - adobe-acrobate-pro
-                   # - adobe-acrobate-reader
-                   # - adobe-air
-                   #- adobe-air-sdk
-                   # - scratch
-                    - vlc
-                   #  - libreoffice
-                   # - libreoffice-language-pack
+        - name: Installation d'applications sur le Mac d Arno
+          homebrew_cask: 
+               name: "{{ item }}"
+               state: present
+          with_items:
+                   - alfred
+                  # - java
+                  #- flashplayer
+                  #- geogebra
+                  # - firefox
+                  #- google-chrome
+                  #- google-drive-file-stream
+                  #- google-earth
+                  #  - adobe-acrobate-pro
+                  # - adobe-acrobate-reader
+                  # - adobe-air # Demande un mot de passe
+                  #- adobe-air-sdk # Demande un mot de passe
+                  # - scratch
+                   - vlc
+                  #  - libreoffice
+                  # - libreoffice-language-pack
+        - name: copie le dmg de Flash Player
+          copy:
+                  src: /root/macApp/install_flash_player_osx.dmg
+                  dest: /Users/arnaud/Desktop/install_flash_player_osx.dmg
+                  owner: arnaud
+                  group: staff
+                  mode: 0755
+        - name: montage du dmg
+          command: /usr/bin/hdiutil mount /Users/arnaud/Desktop/install_flash_player_osx.dmg
 ...

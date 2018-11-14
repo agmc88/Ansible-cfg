@@ -1,0 +1,22 @@
+---
+- name: Test installation de plusieurs logiciels sans mot de passe =)
+  hosts: arno
+  tasks:
+        - name: installation sans sudo
+          homebrew_cask:
+                name: "{{ item }}"
+                state: absent
+                install_options: "appdir=/Applications"
+                update_homebrew: yes
+          with_items:
+                  - vlc
+                  - keka
+        - name: install Adobe
+          homebrew_cask:
+                  name: "{{ item }}"
+                  state: present
+                  install_options: force
+                  update_homebrew: no
+          with_items:
+                  - adobe-air
+...

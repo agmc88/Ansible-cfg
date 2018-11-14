@@ -1,0 +1,8 @@
+---
+- hosts: arno
+  tasks: 
+       - name: Uninstall Alfred from Applications folder
+         homebrew_cask: name=alfred state=absent
+         install_options: "appdir=/Applications"
+         update_homebrew: yes
+...

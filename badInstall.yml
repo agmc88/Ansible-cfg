@@ -4,7 +4,7 @@
          - name: Installation d'applications sur le Mac d Arno
            homebrew_cask: name={{ item }} state=present
            with_items:
-                   # - alfred
+                    - alfred
                    # - java
                       #- flashplayer
                       #- geogebra
@@ -14,9 +14,9 @@
                       #- google-earth
                       #  - adobe-acrobate-pro
                       # - adobe-acrobate-reader
-                    - adobe-air
-                   #- adobe-air-sdk
-                    - scratch
+                      # - adobe-air
+                      # - adobe-air-sdk
+                      # - scratch
                       # - vlc
                       #  - libreoffice
                       # - libreoffice-language-pack

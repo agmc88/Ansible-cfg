@@ -1,7 +1,11 @@
 ---
-- homebrew_cask:
-        name:           alfred
-        state:          absent
+- name: Installation de logiciels...
+  hosts: arno
+  tasks:
+    - name: installation alfred
+      homebrew_cask:
+        name: alfred
+        state: present
         install_options: "appdir=/Applications"
         update_homebrew: yes
 ...
